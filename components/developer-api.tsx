@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react"
 export default function DeveloperAPI() {
   return (
     <section id="api" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -46,9 +48,10 @@ export default function DeveloperAPI() {
               </div>
             </div>
 
-            <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition shadow-lg hover:shadow-xl">
+            <button disabled={true} className="cursor-not-allowed px-8 py-3 bg-primary/20 text-primary-foreground/70 rounded-lg font-semibold transition shadow-none opacity-80">
               View API Docs
             </button>
+            <br />
           </div>
 
           {/* Right side - Code example */}
@@ -67,7 +70,7 @@ export default function DeveloperAPI() {
               </div>
               <div className="relative font-mono text-sm leading-relaxed overflow-x-auto">
                 <pre className="text-primary-foreground/90">
-{`// POST /api/watermark
+                  {`// POST /api/watermark
 const response = await fetch(
   'https://api.ekmark.dev',
   {

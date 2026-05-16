@@ -12,7 +12,7 @@ export default function LaunchCountdown() {
 
   useEffect(() => {
     const targetDate = new Date('2026-06-10T00:00:00').getTime()
-    
+
     const interval = setInterval(() => {
       const now = new Date().getTime()
       const difference = targetDate - now
@@ -63,9 +63,11 @@ export default function LaunchCountdown() {
           <CountdownBox value={timeLeft.seconds} label="Seconds" />
         </div>
 
-        <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition shadow-lg hover:shadow-xl">
-          Notify Me at Launch
-        </button>
+        <a href="#lastWaitlist">
+          <button className="cursor-pointer px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition shadow-lg hover:shadow-xl">
+            Notify Me at Launch
+          </button>
+        </a>
       </div>
     </section>
   )
