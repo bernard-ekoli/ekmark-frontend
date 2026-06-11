@@ -1,0 +1,20 @@
+{"timestamp":"00:00:01.101","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:15.577","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:16.269","source":"Browser","level":"LOG","message":"Backend URL: http://localhost:5000"}
+{"timestamp":"00:00:16.525","source":"Browser","level":"LOG","message":"Backend URL: http://localhost:5000"}
+{"timestamp":"00:00:16.657","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit"}
+{"timestamp":"00:00:16.657","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {\"path\":\"/\",\"route\":\"/\"}"}
+{"timestamp":"00:00:16.657","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {\"dp\":\"/\",\"o\":\"http://localhost:3000/\",\"sdkn\":\"@vercel/analytics/next\",\"sdkv\":\"1.6.1\",\"sv\":\"0.1.3\",\"ts\":1781199931935} /_vercel/insights/view"}
+{"timestamp":"00:00:18.570","source":"Browser","level":"LOG","message":"{\"message\":\"Firestore warmed up\",\"success\":true}"}
+{"timestamp":"00:00:23.342","source":"Browser","level":"LOG","message":"{\"message\":\"Firestore warmed up\",\"success\":true}"}
+{"timestamp":"00:05:01.831","source":"Server","level":"LOG","message":"✓ Compiled in 964ms"}
+{"timestamp":"00:05:38.938","source":"Server","level":"LOG","message":"✓ Compiled in 108ms"}
+{"timestamp":"00:06:14.605","source":"Server","level":"LOG","message":"✓ Compiled in 169ms"}
+{"timestamp":"00:06:19.401","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:06:19.653","source":"Browser","level":"LOG","message":"Backend URL: http://localhost:5000"}
+{"timestamp":"00:06:19.929","source":"Browser","level":"LOG","message":"Backend URL: http://localhost:5000"}
+{"timestamp":"00:06:20.012","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit"}
+{"timestamp":"00:06:20.012","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {\"path\":\"/\",\"route\":\"/\"}"}
+{"timestamp":"00:06:20.012","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {\"dp\":\"/\",\"o\":\"http://localhost:3000/\",\"sdkn\":\"@vercel/analytics/next\",\"sdkv\":\"1.6.1\",\"sv\":\"0.1.3\",\"ts\":1781200295274} /_vercel/insights/view"}
+{"timestamp":"00:06:22.540","source":"Browser","level":"LOG","message":"{\"message\":\"Firestore warmed up\",\"success\":true}"}
+{"timestamp":"00:06:23.422","source":"Browser","level":"LOG","message":"{\"message\":\"Firestore warmed up\",\"success\":true}"}
