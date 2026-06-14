@@ -5,7 +5,6 @@ import Header from '@/components/header'
 import Hero from '@/components/hero'
 import Features from '@/components/features'
 import DeveloperAPI from '@/components/developer-api'
-import LaunchCountdown from '@/components/launch-countdown'
 import CTA from '@/components/cta'
 import Footer from '@/components/footer'
 
@@ -17,7 +16,6 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    console.log("Backend URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
     const warmUpServer = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/init`)
@@ -37,7 +35,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
-      <LaunchCountdown />
       <DeveloperAPI />
       <CTA />
       <Footer />

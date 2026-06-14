@@ -10,9 +10,9 @@ export default function Header() {
           <a href="#api" className="text-sm text-muted-foreground hover:text-foreground transition">For Developers</a>
           <a href="#launch" className="text-sm text-muted-foreground hover:text-foreground transition">Launch</a>
         </nav>
-        <a href="#email" className="">
+        <a href="/watermark" className="">
           <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition shadow-lg hover:shadow-xl cursor-pointer">
-            Notify Me
+            Upload Image
           </button>
         </a>
       </div>
