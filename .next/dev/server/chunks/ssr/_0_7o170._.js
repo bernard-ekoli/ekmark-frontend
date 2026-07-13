@@ -505,6 +505,11 @@ function WatermarkPage() {
             setLoading(false);
         }
     }
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        console.log("This is ", processedImages);
+    }, [
+        processedImages
+    ]);
     // ─── Download helpers ─────────────────────────────────────────────────────
     async function downloadAll() {
         for (const img of processedImages){
@@ -516,7 +521,9 @@ function WatermarkPage() {
         const a = document.createElement('a');
         a.href = img.url;
         a.download = `ekmark-${img.name}`;
+        document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
     }
     // ─── Reset ────────────────────────────────────────────────────────────────
     function reset() {
@@ -537,7 +544,7 @@ function WatermarkPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/watermark/page.tsx",
-                lineNumber: 170,
+                lineNumber: 176,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -557,7 +564,7 @@ function WatermarkPage() {
                                                 children: step > i ? '✓' : i + 1
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 179,
+                                                lineNumber: 185,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -565,7 +572,7 @@ function WatermarkPage() {
                                                 children: label
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 191,
+                                                lineNumber: 197,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -573,31 +580,31 @@ function WatermarkPage() {
                                                 children: label
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 195,
+                                                lineNumber: 201,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 184,
                                         columnNumber: 29
                                     }, this),
                                     i < STEPS.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: `w-10 sm:w-20 h-px mx-1.5 sm:mx-2 mb-5 transition-colors ${step > i ? 'bg-primary/40' : 'bg-border'}`
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 200,
+                                        lineNumber: 206,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, label, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 177,
+                                lineNumber: 183,
                                 columnNumber: 25
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/watermark/page.tsx",
-                        lineNumber: 175,
+                        lineNumber: 181,
                         columnNumber: 17
                     }, this),
                     step === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -610,7 +617,7 @@ function WatermarkPage() {
                                         children: "Upload Your Images"
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 216,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -622,13 +629,13 @@ function WatermarkPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 219,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 209,
+                                lineNumber: 215,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -648,7 +655,7 @@ function WatermarkPage() {
                                         onChange: (e)=>e.target.files && addFiles(e.target.files)
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 230,
+                                        lineNumber: 236,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -656,7 +663,7 @@ function WatermarkPage() {
                                         children: "🖼️"
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 244,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -664,7 +671,7 @@ function WatermarkPage() {
                                         children: dragActive ? 'Drop your images here' : 'Drag & drop or click to upload'
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 239,
+                                        lineNumber: 245,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -677,13 +684,13 @@ function WatermarkPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 248,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 219,
+                                lineNumber: 225,
                                 columnNumber: 25
                             }, this),
                             images.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -698,7 +705,7 @@ function WatermarkPage() {
                                                     className: "w-full h-full object-cover"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/watermark/page.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 261,
                                                     columnNumber: 41
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -710,7 +717,7 @@ function WatermarkPage() {
                                                     children: "✕"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/watermark/page.tsx",
-                                                    lineNumber: 260,
+                                                    lineNumber: 266,
                                                     columnNumber: 41
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -720,18 +727,18 @@ function WatermarkPage() {
                                                         children: img.file.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 267,
+                                                        lineNumber: 273,
                                                         columnNumber: 45
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/watermark/page.tsx",
-                                                    lineNumber: 266,
+                                                    lineNumber: 272,
                                                     columnNumber: 41
                                                 }, this)
                                             ]
                                         }, img.id, true, {
                                             fileName: "[project]/app/watermark/page.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 257,
                                             columnNumber: 37
                                         }, this)),
                                     images.length < MAX_FILES && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -743,7 +750,7 @@ function WatermarkPage() {
                                                 children: "+"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 278,
+                                                lineNumber: 284,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -751,19 +758,19 @@ function WatermarkPage() {
                                                 children: "Add more"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 279,
+                                                lineNumber: 285,
                                                 columnNumber: 41
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 274,
+                                        lineNumber: 280,
                                         columnNumber: 37
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 249,
+                                lineNumber: 255,
                                 columnNumber: 29
                             }, this),
                             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -771,7 +778,7 @@ function WatermarkPage() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 286,
+                                lineNumber: 292,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -783,18 +790,18 @@ function WatermarkPage() {
                                     children: "Next: Configure Watermark →"
                                 }, void 0, false, {
                                     fileName: "[project]/app/watermark/page.tsx",
-                                    lineNumber: 290,
+                                    lineNumber: 296,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 289,
+                                lineNumber: 295,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/watermark/page.tsx",
-                        lineNumber: 208,
+                        lineNumber: 214,
                         columnNumber: 21
                     }, this),
                     step === 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -807,7 +814,7 @@ function WatermarkPage() {
                                         children: "Configure Watermark"
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 311,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -815,13 +822,13 @@ function WatermarkPage() {
                                         children: "Set your watermark text, size, and position."
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 308,
+                                        lineNumber: 314,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 304,
+                                lineNumber: 310,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -834,12 +841,13 @@ function WatermarkPage() {
                                                 children: "Watermark Text"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 317,
+                                                lineNumber: 323,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "text",
                                                 placeholder: "e.g. © YourName 2026",
+                                                maxLength: 40,
                                                 value: config.text,
                                                 onChange: (e)=>setConfig((c)=>({
                                                             ...c,
@@ -848,13 +856,13 @@ function WatermarkPage() {
                                                 className: "w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground text-sm sm:text-base"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 320,
+                                                lineNumber: 326,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 316,
+                                        lineNumber: 322,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -871,13 +879,13 @@ function WatermarkPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 332,
+                                                        lineNumber: 339,
                                                         columnNumber: 49
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 331,
+                                                lineNumber: 338,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -892,7 +900,7 @@ function WatermarkPage() {
                                                 className: "w-full accent-primary"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 341,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -902,26 +910,26 @@ function WatermarkPage() {
                                                         children: "12px"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 343,
+                                                        lineNumber: 350,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "120px"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 344,
+                                                        lineNumber: 351,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 342,
+                                                lineNumber: 349,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 330,
+                                        lineNumber: 337,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -931,7 +939,7 @@ function WatermarkPage() {
                                                 children: "Position"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 350,
+                                                lineNumber: 357,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -956,7 +964,7 @@ function WatermarkPage() {
                                                                         children: pos.short
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                                        lineNumber: 372,
+                                                                        lineNumber: 379,
                                                                         columnNumber: 49
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -964,18 +972,18 @@ function WatermarkPage() {
                                                                         children: pos.label
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                                        lineNumber: 373,
+                                                                        lineNumber: 380,
                                                                         columnNumber: 49
                                                                     }, this)
                                                                 ]
                                                             }, pos.value, true, {
                                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                                lineNumber: 361,
+                                                                lineNumber: 368,
                                                                 columnNumber: 45
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 356,
+                                                        lineNumber: 363,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -987,25 +995,25 @@ function WatermarkPage() {
                                                                 children: POSITIONS.find((p)=>p.value === config.position)?.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                                lineNumber: 378,
+                                                                lineNumber: 385,
                                                                 columnNumber: 51
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 377,
+                                                        lineNumber: 384,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 355,
+                                                lineNumber: 362,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 349,
+                                        lineNumber: 356,
                                         columnNumber: 29
                                     }, this),
                                     config.text && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1016,7 +1024,7 @@ function WatermarkPage() {
                                                 children: "Preview text"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 388,
+                                                lineNumber: 395,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1027,19 +1035,19 @@ function WatermarkPage() {
                                                 children: config.text
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 389,
+                                                lineNumber: 396,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 387,
+                                        lineNumber: 394,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 313,
+                                lineNumber: 319,
                                 columnNumber: 25
                             }, this),
                             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1047,7 +1055,7 @@ function WatermarkPage() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 400,
+                                lineNumber: 407,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1062,7 +1070,7 @@ function WatermarkPage() {
                                         children: "← Back"
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 404,
+                                        lineNumber: 411,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1072,19 +1080,19 @@ function WatermarkPage() {
                                         children: loading ? 'Processing...' : `Watermark ${images.length} Image${images.length > 1 ? 's' : ''} →`
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 410,
+                                        lineNumber: 417,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 403,
+                                lineNumber: 410,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/watermark/page.tsx",
-                        lineNumber: 303,
+                        lineNumber: 309,
                         columnNumber: 21
                     }, this),
                     step === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1097,7 +1105,7 @@ function WatermarkPage() {
                                         children: "Your Images Are Ready"
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 427,
+                                        lineNumber: 434,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1105,13 +1113,13 @@ function WatermarkPage() {
                                         children: "Download individually or grab them all at once."
                                     }, void 0, false, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 430,
+                                        lineNumber: 437,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 426,
+                                lineNumber: 433,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1126,12 +1134,12 @@ function WatermarkPage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/watermark/page.tsx",
-                                    lineNumber: 437,
+                                    lineNumber: 444,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 436,
+                                lineNumber: 443,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1147,12 +1155,12 @@ function WatermarkPage() {
                                                     className: "w-full h-full object-cover"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/watermark/page.tsx",
-                                                    lineNumber: 453,
+                                                    lineNumber: 460,
                                                     columnNumber: 41
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 452,
+                                                lineNumber: 459,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1163,7 +1171,7 @@ function WatermarkPage() {
                                                         children: img.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 460,
+                                                        lineNumber: 467,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1172,24 +1180,24 @@ function WatermarkPage() {
                                                         children: "Download"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/watermark/page.tsx",
-                                                        lineNumber: 463,
+                                                        lineNumber: 470,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/watermark/page.tsx",
-                                                lineNumber: 459,
+                                                lineNumber: 466,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, img.id, true, {
                                         fileName: "[project]/app/watermark/page.tsx",
-                                        lineNumber: 448,
+                                        lineNumber: 455,
                                         columnNumber: 33
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 446,
+                                lineNumber: 453,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1200,35 +1208,35 @@ function WatermarkPage() {
                                     children: "← Watermark More Images"
                                 }, void 0, false, {
                                     fileName: "[project]/app/watermark/page.tsx",
-                                    lineNumber: 476,
+                                    lineNumber: 483,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/watermark/page.tsx",
-                                lineNumber: 475,
+                                lineNumber: 482,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/watermark/page.tsx",
-                        lineNumber: 425,
+                        lineNumber: 432,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/watermark/page.tsx",
-                lineNumber: 172,
+                lineNumber: 178,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/watermark/page.tsx",
-                lineNumber: 488,
+                lineNumber: 495,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/watermark/page.tsx",
-        lineNumber: 169,
+        lineNumber: 175,
         columnNumber: 9
     }, this);
 }

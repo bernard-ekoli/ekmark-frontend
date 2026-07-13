@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
@@ -133,9 +133,13 @@ export default function WatermarkPage() {
             setError(err.message || 'Something went wrong. Please try again.')
         } finally {
             setLoading(false)
+
         }
     }
 
+    useEffect(() => {
+        console.log("This is ", processedImages)
+    }, [processedImages])
     // ─── Download helpers ─────────────────────────────────────────────────────
 
     async function downloadAll() {
@@ -149,7 +153,9 @@ export default function WatermarkPage() {
         const a = document.createElement('a')
         a.href = img.url
         a.download = `ekmark-${img.name}`
+        document.body.appendChild(a)
         a.click()
+        document.body.removeChild(a)
     }
 
     // ─── Reset ────────────────────────────────────────────────────────────────
@@ -320,6 +326,7 @@ export default function WatermarkPage() {
                                 <input
                                     type="text"
                                     placeholder="e.g. © YourName 2026"
+                                    maxLength={40}
                                     value={config.text}
                                     onChange={e => setConfig(c => ({ ...c, text: e.target.value }))}
                                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground text-sm sm:text-base"

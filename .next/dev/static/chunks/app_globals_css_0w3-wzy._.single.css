@@ -158,9 +158,9 @@
 
   @supports (color: lab(0% 0 0)) {
     :root, :host {
-      --color-red-50: lab(96.5005% 4.18508 1.52328);
-      --color-red-300: lab(76.5514% 36.422 15.5335);
-      --color-red-400: lab(63.7053% 60.745 31.3109);
+      --color-red-50: lab(96.5005% 4.18511 1.52329);
+      --color-red-300: lab(76.5514% 36.4219 15.5335);
+      --color-red-400: lab(63.7053% 60.7449 31.3109);
       --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
     }
@@ -6113,7 +6113,7 @@
     --primary-foreground: lab(97.68% -.0000298023 .0000119209);
     --secondary: lab(94.2% 0 0);
     --secondary-foreground: lab(2.75381% 0 0);
-    --muted: lab(86.08% -.0000298023 0);
+    --muted: lab(86.08% 0 0);
     --muted-foreground: lab(42% 0 0);
     --accent: lab(3.04863% 0 0);
     --accent-foreground: lab(100% 0 0);
@@ -6197,7 +6197,7 @@
     --chart-1: lab(97.68% -.0000298023 .0000119209);
     --chart-2: lab(65.2% 0 0);
     --chart-3: lab(42% 0 0);
-    --chart-4: lab(82.6% .0000298023 -.0000119209);
+    --chart-4: lab(82.6% 0 0);
     --chart-5: lab(53.6% 0 0);
     --sidebar: lab(2.75381% 0 0);
     --sidebar-foreground: lab(97.68% -.0000298023 .0000119209);
