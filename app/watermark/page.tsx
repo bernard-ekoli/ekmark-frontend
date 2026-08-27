@@ -7,7 +7,7 @@ import Footer from '@/components/footer'
 type Position =
     | 'top-left' | 'top-center' | 'top-right'
     | 'center'
-    | 'bottom-left' | 'bottom-center' | 'bottom-right'
+    | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'left' | 'right'
 
 interface ImageFile {
     id: string
@@ -31,7 +31,9 @@ const POSITIONS: { value: Position; label: string; short: string }[] = [
     { value: 'top-left', label: 'Top Left', short: 'TL' },
     { value: 'top-center', label: 'Top Center', short: 'TC' },
     { value: 'top-right', label: 'Top Right', short: 'TR' },
+    { value: 'left', label: 'Left', short: 'L' },
     { value: 'center', label: 'Center', short: 'C' },
+    { value: 'right', label: 'Right', short: 'R' },
     { value: 'bottom-left', label: 'Bottom Left', short: 'BL' },
     { value: 'bottom-center', label: 'Bottom Center', short: 'BC' },
     { value: 'bottom-right', label: 'Bottom Right', short: 'BR' },
@@ -105,8 +107,8 @@ export default function WatermarkPage() {
     // ─── Process images ───────────────────────────────────────────────────────
 
     async function processImages() {
-        if (!config.text.trim()) {
-            setError('Please enter watermark text.')
+        if (!config.text.trim() || !config.fontSize.toString().trim() || !config.position) {
+            setError('Please Fill in the fields.')
             return
         }
         setLoading(true)
@@ -150,14 +152,21 @@ export default function WatermarkPage() {
     }
 
     async function downloadSingle(img: ProcessedImage) {
+        const response = await fetch(img.url)
+        const blob = await response.blob()
+
+        const url = URL.createObjectURL(blob)
+
         const a = document.createElement('a')
-        a.href = img.url
+        a.href = url
         a.download = `ekmark-${img.name}`
+
         document.body.appendChild(a)
         a.click()
-        document.body.removeChild(a)
-    }
+        a.remove()
 
+        URL.revokeObjectURL(url)
+    }
     // ─── Reset ────────────────────────────────────────────────────────────────
 
     function reset() {
@@ -341,14 +350,14 @@ export default function WatermarkPage() {
                                 <input
                                     type="range"
                                     min={12}
-                                    max={120}
+                                    max={40}
                                     value={config.fontSize}
                                     onChange={e => setConfig(c => ({ ...c, fontSize: Number(e.target.value) }))}
                                     className="w-full accent-primary"
                                 />
                                 <div className="flex justify-between text-xs text-muted-foreground mt-1">
                                     <span>12px</span>
-                                    <span>120px</span>
+                                    <span>40px</span>
                                 </div>
                             </div>
 

@@ -1,30 +1,21 @@
+import Link from "next/link"
 export default function Footer() {
   return (
     <footer className="border-t border-border/30 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-04">
               <img src="/ekmark-logo.png" alt="Ekmark" className="h-20 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground">
-              Free watermark generator launching June 10, 2026.
+              Free watermark generator.
             </p>
           </div>
-
-          <div>
-            <h3 className="font-semibold text-foreground mb-4 text-sm">Product</h3>
-            <ul className="space-y-2">
-              <li><a href="#features" className="text-muted-foreground hover:text-foreground text-sm transition">Features</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm transition">Pricing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm transition">Security</a></li>
-            </ul>
-          </div>
-
           <div>
             <h3 className="font-semibold text-foreground mb-4 text-sm">Developers</h3>
             <ul className="space-y-2">
-              <li><a href="#api" className="text-muted-foreground hover:text-foreground text-sm transition">API Docs</a></li>
+              <li><a href="/documentation" className="text-muted-foreground hover:text-foreground text-sm transition">API Docs</a></li>
             </ul>
           </div>
 

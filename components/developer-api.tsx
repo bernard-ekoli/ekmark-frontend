@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import Link from "next/link"
 export default function DeveloperAPI() {
   return (
     <section id="api" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -11,7 +11,7 @@ export default function DeveloperAPI() {
               <span className="text-sm font-medium text-primary">For Developers</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Public API Coming Soon
+              Public API
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Embed our powerful watermarking engine directly into your applications. Free public API with generous rate limits.
@@ -48,9 +48,11 @@ export default function DeveloperAPI() {
               </div>
             </div>
 
-            <button disabled={true} className="cursor-not-allowed px-8 py-3 bg-primary/20 text-primary-foreground/70 rounded-lg font-semibold transition shadow-none opacity-80">
-              View API Docs
-            </button>
+            <Link href={"/documentation"}>
+              <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold transition shadow-none hover:opacity-90 cursor-pointer">
+                View API Docs
+              </button>
+            </Link>
             <br />
           </div>
 
@@ -59,32 +61,34 @@ export default function DeveloperAPI() {
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl blur-xl"></div>
             <div className="relative bg-primary text-primary-foreground rounded-2xl p-8 overflow-hidden">
               {/* Blurred code overlay */}
-              <div className="absolute inset-0 backdrop-blur-md bg-black/40 rounded-2xl flex items-center justify-center z-10">
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-white mb-2">Coming Soon</p>
-                  <p className="text-sm text-white/80">API documentation launching June 10</p>
-                </div>
-              </div>
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 text-xs font-mono opacity-50">api.ekmark.dev</div>
               </div>
               <div className="relative font-mono text-sm leading-relaxed overflow-x-auto">
                 <pre className="text-primary-foreground/90">
                   {`// POST /api/watermark
-const response = await fetch(
-  'https://api.ekmark.dev',
-  {
-    method: 'POST',
-    body: JSON.stringify({
-      image: imageUrl,
-      text: 'Your Watermark',
-      position: 'center',
-      opacity: 0.8,
-    }),
-  }
-);
+const response = await fetch('https://api.ekmark.ekolix.com.ng/api/watermark', {
+  method: 'POST',
+  body: JSON.stringify({
+    image: imagerawData,
+    text: 'Your Watermark',
+    position: 'center',
+    size: 24,
+  }),
+});
 
 const result = await response.json();
+
+result = {
+  "images": [
+    {
+      "id": "b3f1c2a0-6e3d-4c1a-9c2e-4f6a1e2d3b4c",
+      "name": "photo1.png",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+    }
+  ]
+}
+
 // Returns watermarked image URL`}
                 </pre>
               </div>

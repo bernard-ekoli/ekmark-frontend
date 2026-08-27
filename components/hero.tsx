@@ -1,5 +1,5 @@
 'use client'
-
+import Link from "next/link"
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-32 px-4 sm:px-6 lg:px-8">
@@ -31,18 +31,20 @@ export default function Hero() {
         </div>
 
         {/* Glossy card preview */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/5 rounded-2xl blur-xl"></div>
-          <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 sm:p-12 shadow-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-            <div className="relative">
-              <div className="bg-primary/10 rounded-xl p-8 aspect-video flex flex-col items-center justify-center border border-border/30">
-                <div className="text-4xl mb-4">🖼️</div>
-                <p className="text-sm text-muted-foreground">Upload your images and add watermarks instantly</p>
+        <Link href={"/watermark"}>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/5 rounded-2xl blur-xl"></div>
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 sm:p-12 shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+              <div className="relative">
+                <div className="bg-primary/10 rounded-xl p-8 aspect-video flex flex-col items-center justify-center border border-border/30">
+                  <div className="text-4xl mb-4">🖼️</div>
+                  <p className="text-sm text-muted-foreground">Upload your images and add watermarks instantly</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   )
