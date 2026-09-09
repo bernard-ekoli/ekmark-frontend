@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 {/* Header */}
                 <div className="mb-12">
-                    <p className="text-sm text-muted-foreground mb-3">Last updated: May 16, 2026</p>
+                    <p className="text-sm text-muted-foreground mb-3">Last updated: September 9, 2026</p>
                     <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Privacy Policy</h1>
                     <p className="text-lg text-muted-foreground max-w-2xl">
                         Your privacy matters to us. This policy explains what information we collect, how we use it, and your rights regarding your data.
@@ -43,10 +43,12 @@ export default function PrivacyPolicy() {
                     </Section>
 
                     <Section title="2. What Information We Collect">
-                        <p className="mb-4">We collect minimal information and only what is necessary:</p>
+                        <p className="mb-4">
+                            Ekmark does not require an account and does not collect personal information such
+                            as your name or email address. We collect only the minimum necessary to run the Service:
+                        </p>
                         <ul className="space-y-3">
-                            <Li><strong>Email address</strong> — When you join our waitlist, we collect your email address solely to notify you when Ekmark launches.</Li>
-                            <Li><strong>Images you upload</strong> — Images you upload for watermarking are processed entirely in your browser. They are <strong>never sent to our servers</strong> and are never stored.</Li>
+                            <Li><strong>Images you upload</strong> — When you use the watermarking tool, your images are temporarily uploaded to our server to apply the watermark. Images are held only in memory for the duration of processing — they are <strong>never written to disk, never stored in a database, and never viewed by us</strong>. Once the watermarked result is returned to you, the original and processed images are immediately discarded from our server.</Li>
                             <Li><strong>Basic usage data</strong> — We may collect anonymous usage data (such as page visits) to understand how our site is used. This data cannot be used to identify you personally.</Li>
                         </ul>
                     </Section>
@@ -54,37 +56,25 @@ export default function PrivacyPolicy() {
                     <Section title="3. How We Use Your Information">
                         <p className="mb-4">We use the information we collect for the following purposes:</p>
                         <ul className="space-y-3">
-                            <Li>To send you a one-time notification when Ekmark officially launches.</Li>
-                            <Li>To send you early access information if you signed up before launch.</Li>
-                            <Li>We will <strong>never</strong> sell, rent, or share your email address with third parties.</Li>
-                            <Li>We will <strong>never</strong> send you unsolicited marketing or spam.</Li>
+                            <Li>To process the images you submit, solely for the purpose of applying your requested watermark and returning the result to you.</Li>
+                            <Li>To understand aggregate, anonymous usage patterns and improve the Service.</Li>
+                            <Li>We will <strong>never</strong> sell, rent, or share your images or usage data with third parties.</Li>
                         </ul>
                     </Section>
 
                     <Section title="4. Where Your Data Is Stored">
                         <p>
-                            Waitlist email addresses are securely stored in{" "}
-                            <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:opacity-70 transition">
-                                Google Firebase Firestore
-                            </a>
-                            , a cloud database service provided by Google LLC. Firebase is compliant with GDPR and other major data protection regulations. You can read Google's privacy policy at{" "}
-                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:opacity-70 transition">
-                                policies.google.com/privacy
-                            </a>.
+                            Images submitted for watermarking are processed in-memory on our backend infrastructure
+                            and are not persisted anywhere. No image data is written to disk, backed up, logged, or
+                            retained in any form after your request completes.
                         </p>
                     </Section>
 
                     <Section title="5. Your Rights">
-                        <p className="mb-4">
-                            Depending on your location, you may have the following rights regarding your personal data:
-                        </p>
-                        <ul className="space-y-3">
-                            <Li><strong>Right to access</strong> — You can request a copy of the data we hold about you.</Li>
-                            <Li><strong>Right to deletion</strong> — You can request that we delete your email address from our waitlist at any time.</Li>
-                            <Li><strong>Right to withdraw consent</strong> — You can opt out of our waitlist at any time by contacting us.</Li>
-                        </ul>
-                        <p className="mt-4">
-                            To exercise any of these rights, email us at{" "}
+                        <p>
+                            Because Ekmark does not collect or store personal information, there is no personal
+                            data held about you to access, correct, or delete. If you have any concerns about
+                            how the Service handles your images or data, you can reach us at{" "}
                             <a href="mailto:bernardedetekoli@gmail.com" className="text-foreground underline underline-offset-4 hover:opacity-70 transition">
                                 bernardedetekoli@gmail.com
                             </a>{" "}

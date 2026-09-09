@@ -22,7 +22,7 @@ export default function TermsOfService() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 {/* Header */}
                 <div className="mb-12">
-                    <p className="text-sm text-muted-foreground mb-3">Last updated: May 16, 2026</p>
+                    <p className="text-sm text-muted-foreground mb-3">Last updated: September 9, 2026</p>
                     <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Terms of Service</h1>
                     <p className="text-lg text-muted-foreground max-w-2xl">
                         By using Ekmark, you agree to these terms. Please read them carefully — they are written in plain English.
@@ -35,17 +35,17 @@ export default function TermsOfService() {
                     <Section title="1. Acceptance of Terms">
                         <p>
                             By accessing or using Ekmark ("the Service"), you agree to be bound by these Terms of Service.
-                            If you do not agree, please do not use the Service. These terms apply to all visitors,
-                            waitlist subscribers, and users of the Service.
+                            If you do not agree, please do not use the Service. These terms apply to all visitors
+                            and users of the Service.
                         </p>
                     </Section>
 
                     <Section title="2. About Ekmark">
                         <p>
                             Ekmark is a free image watermarking tool owned and operated by Bernard Edet Ekoli.
-                            The Service allows users to upload images and apply custom text watermarks, entirely
-                            within their browser. Ekmark also provides a public API for developers to integrate
-                            watermarking into their own applications.
+                            The Service allows users to upload images and apply custom text watermarks. Ekmark
+                            also provides a public API for developers to integrate watermarking into their own
+                            applications.
                         </p>
                     </Section>
 
@@ -65,9 +65,12 @@ export default function TermsOfService() {
 
                     <Section title="4. Your Images & Content">
                         <p className="mb-4">
-                            Images you upload to Ekmark are processed entirely within your browser and are
-                            <strong> never sent to or stored on our servers</strong>. You retain full ownership
-                            of all images and content you process using the Service.
+                            When you use Ekmark, your images are temporarily uploaded to our server so that your
+                            requested watermark can be applied. Images are processed <strong>in memory only</strong> —
+                            they are never written to disk, never stored in a database, and never viewed by us.
+                            Once the watermarked result is returned to you, the original and processed images are
+                            immediately discarded from our server. You retain full ownership of all images and
+                            content you process using the Service.
                         </p>
                         <p>
                             By using the Service, you confirm that you own or have the necessary rights to
@@ -78,28 +81,16 @@ export default function TermsOfService() {
 
                     <Section title="5. API Usage">
                         <p className="mb-4">
-                            Ekmark offers a free public API at <span className="font-mono text-sm bg-border/30 px-1.5 py-0.5 rounded">api.ekmark.dev</span>.
-                            By using the API, you agree to the following:
+                            Ekmark offers a free public API. By using the API, you agree to the following:
                         </p>
                         <ul className="space-y-3">
                             <Li>You will not use the API to build a competing watermarking service that resells Ekmark's infrastructure.</Li>
-                            <Li>You will respect rate limits as documented. Abuse of rate limits may result in your access being revoked.</Li>
-                            <Li>The API is provided free of charge and may be subject to change, including rate limit adjustments, with reasonable notice.</Li>
+                            <Li>You will not abuse, flood, or excessively automate requests to the API in a way that degrades performance for other users.</Li>
+                            <Li>The API is provided free of charge and may be subject to change at any time, including the introduction of rate limits, usage quotas, or authentication requirements, with reasonable notice where practical.</Li>
                         </ul>
                     </Section>
 
-                    <Section title="6. Waitlist">
-                        <p>
-                            By joining the Ekmark waitlist, you consent to receiving a one-time launch notification
-                            email and early access information. You can request removal from the waitlist at any
-                            time by contacting us at{" "}
-                            <a href="mailto:bernardedetekoli@gmail.com" className="text-foreground underline underline-offset-4 hover:opacity-70 transition">
-                                bernardedetekoli@gmail.com
-                            </a>.
-                        </p>
-                    </Section>
-
-                    <Section title="7. Intellectual Property">
+                    <Section title="6. Intellectual Property">
                         <p>
                             The Ekmark name, logo, website design, and all related materials are the intellectual
                             property of Bernard Edet Ekoli. You may not copy, reproduce, or redistribute any part
@@ -108,7 +99,7 @@ export default function TermsOfService() {
                         </p>
                     </Section>
 
-                    <Section title="8. Disclaimer of Warranties">
+                    <Section title="7. Disclaimer of Warranties">
                         <p>
                             Ekmark is provided <strong>"as is"</strong> and <strong>"as available"</strong> without
                             warranties of any kind, either express or implied. We do not guarantee that the Service
@@ -117,7 +108,7 @@ export default function TermsOfService() {
                         </p>
                     </Section>
 
-                    <Section title="9. Limitation of Liability">
+                    <Section title="8. Limitation of Liability">
                         <p>
                             To the fullest extent permitted by law, Bernard Edet Ekoli shall not be liable for
                             any indirect, incidental, special, or consequential damages arising from your use of
@@ -127,7 +118,7 @@ export default function TermsOfService() {
                         </p>
                     </Section>
 
-                    <Section title="10. Changes to These Terms">
+                    <Section title="9. Changes to These Terms">
                         <p>
                             We may update these Terms of Service from time to time. When we do, we will update
                             the "Last updated" date at the top of this page. Continued use of the Service after
@@ -136,7 +127,7 @@ export default function TermsOfService() {
                         </p>
                     </Section>
 
-                    <Section title="11. Governing Law">
+                    <Section title="10. Governing Law">
                         <p>
                             These Terms shall be governed by and construed in accordance with the laws of the
                             Federal Republic of Nigeria. Any disputes arising under these Terms shall be subject
@@ -144,7 +135,7 @@ export default function TermsOfService() {
                         </p>
                     </Section>
 
-                    <Section title="12. Contact Us">
+                    <Section title="11. Contact Us">
                         <p>
                             If you have any questions about these Terms of Service, please contact us at:{" "}
                             <a href="mailto:bernardedetekoli@gmail.com" className="text-foreground underline underline-offset-4 hover:opacity-70 transition font-medium">
