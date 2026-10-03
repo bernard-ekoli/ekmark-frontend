@@ -40,6 +40,7 @@ const POSITIONS: { value: Position; label: string; short: string }[] = [
 ]
 
 const MAX_FILES = 10
+const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024
 const STEPS = ['Upload', 'Configure', 'Download'] as const
 
 export default function WatermarkPage() {
@@ -53,6 +54,7 @@ export default function WatermarkPage() {
     const [processedImages, setProcessedImages] = useState<ProcessedImage[]>([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
+    const [errorText, setErrorText] = useState('')
     const [dragActive, setDragActive] = useState(false)
     const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -60,7 +62,8 @@ export default function WatermarkPage() {
 
     function addFiles(files: FileList | File[]) {
         const arr = Array.from(files)
-        const valid = arr.filter(f => f.type.startsWith('image/'))
+        const imageFiles = arr.filter(f => f.type.startsWith('image/'))
+        const valid = imageFiles.filter(f => f.size <= MAX_FILE_SIZE_BYTES)
         const remaining = MAX_FILES - images.length
         const toAdd = valid.slice(0, remaining)
         const mapped: ImageFile[] = toAdd.map(f => ({
@@ -69,7 +72,12 @@ export default function WatermarkPage() {
             preview: URL.createObjectURL(f),
         }))
         setImages(prev => [...prev, ...mapped])
-        setError('')
+
+        const errors = []
+        if (imageFiles.length < arr.length) errors.push('Only image files can be uploaded.')
+        if (valid.length < imageFiles.length) errors.push('Each image must be 2 MiB or smaller.')
+        if (toAdd.length < valid.length) errors.push(`You can upload up to ${MAX_FILES} images at once.`)
+        setError(errors.join(' '))
     }
 
     function removeImage(id: string) {
@@ -226,7 +234,7 @@ export default function WatermarkPage() {
                                 Upload Your Images
                             </h1>
                             <p className="text-sm sm:text-base text-muted-foreground">
-                                Up to {MAX_FILES} images at once. JPEG, PNG, WebP supported.
+                                Up to {MAX_FILES} images at once, 2 MiB each. JPEG, PNG, WebP supported.
                             </p>
                         </div>
 
@@ -334,30 +342,41 @@ export default function WatermarkPage() {
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="e.g. © YourName 2026"
-                                    maxLength={40}
+                                    placeholder="e.g. &copy; YourName 2026"
+                                    maxLength={61}
                                     value={config.text}
-                                    onChange={e => setConfig(c => ({ ...c, text: e.target.value }))}
+                                    onChange={e => {
+                                        const nextValue = e.target.value
+
+                                        if (nextValue.length > 60) {
+                                            setErrorText('Watermark text must be less than 60 characters')
+                                        } else {
+                                            setErrorText('')
+                                        }
+
+                                        setConfig(c => ({ ...c, text: nextValue }))
+                                    }}
                                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground text-sm sm:text-base"
                                 />
+                                {errorText && <p className="text-destructive text-sm mt-2">{errorText}</p>}
                             </div>
 
                             {/* Font size */}
                             <div>
                                 <label className="block text-sm font-semibold text-foreground mb-2">
-                                    Font Size — <span className="text-primary font-bold">{config.fontSize}px</span>
+                                    Font Size - <span className="text-primary font-bold">{config.fontSize}px</span>
                                 </label>
                                 <input
                                     type="range"
                                     min={12}
-                                    max={40}
+                                    max={120}
                                     value={config.fontSize}
                                     onChange={e => setConfig(c => ({ ...c, fontSize: Number(e.target.value) }))}
                                     className="w-full accent-primary"
                                 />
                                 <div className="flex justify-between text-xs text-muted-foreground mt-1">
                                     <span>12px</span>
-                                    <span>40px</span>
+                                    <span>120px</span>
                                 </div>
                             </div>
 
@@ -425,7 +444,7 @@ export default function WatermarkPage() {
                             </button>
                             <button
                                 onClick={processImages}
-                                disabled={loading || !config.text.trim()}
+                                disabled={loading || !config.text.trim() || errorText !== ''}
                                 className="cursor-pointer px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed text-sm sm:text-base"
                             >
                                 {loading

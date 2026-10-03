@@ -9,7 +9,6 @@ interface NavItem {
 
 const NAV: NavItem[] = [
     { id: "overview", label: "Overview" },
-    { id: "auth", label: "Authentication" },
     { id: "health", label: "GET /watermark" },
     { id: "watermark", label: "POST /watermark" },
     { id: "response", label: "Response shape" },
@@ -630,8 +629,8 @@ export default function EkmarkApiDocs() {
 
                     <Section id="overview" title="Overview" eyebrow="Guide">
                         <p>
-                            This API takes one or more image files plus a short text string, and returns
-                            each image with that text stamped in the bottom-right corner. It's built on{" "}
+                            This API takes one or more image files plus watermark settings, and returns
+                            each image with the text stamped at the requested position. It's built on{" "}
                             <code>sharp</code> for image compositing — watermark text is rendered to an SVG
                             overlay, then composited onto the source image server-side.
                         </p>
@@ -642,19 +641,6 @@ export default function EkmarkApiDocs() {
                             <code>https://api.ekmark.ekolix.com.ng/api/watermark</code>.
                         </p>
                     </Section>
-
-                    <Section id="auth" title="Authentication" eyebrow="Guide">
-                        <div className="callout">
-                            <AlertTriangle size={15} />
-
-                            <span>
-                                No authentication is implemented on this route right now. Anyone with the URL
-                                can call it and consume your Sharp/compute time. Add an API key or auth
-                                middleware before this is public-facing.
-                            </span>
-                        </div>
-                    </Section>
-
                     <Section id="health" title="Health check">
                         <div className="route-title">
                             <Method type="GET" />
@@ -674,7 +660,7 @@ export default function EkmarkApiDocs() {
                             lang="200 response"
                             code={`{
   "success": true,
-  "message": "Ekark watermarking backend is reachable"
+  "message": "Ekmark watermarking backend is reachable"
 }`}
                         />
                     </Section>
@@ -687,8 +673,8 @@ export default function EkmarkApiDocs() {
 
                         <p>
                             Accepts <code>multipart/form-data</code>. Applies <code>text</code> as a watermark
-                            to every file in <code>images</code>, at <code>fontSize</code>, and returns all
-                            results as base64 PNGs in one response.
+                            to every file in <code>images</code>, using <code>fontSize</code> and <code>position</code>,
+                            and returns all results as PNG data URLs in one response.
                         </p>
 
                         <table>
@@ -709,7 +695,8 @@ export default function EkmarkApiDocs() {
                                         <span className="req">required</span>
                                     </td>
                                     <td className="dim">
-                                        Up to 10 files, field name must be <code>images</code>
+                                        Up to 10 files; each must be 2 MiB or smaller. Field name must be{" "}
+                                        <code>images</code>. The backend accepts image MIME types Sharp can decode.
                                     </td>
                                 </tr>
 
@@ -720,7 +707,7 @@ export default function EkmarkApiDocs() {
                                         <span className="req">required</span>
                                     </td>
                                     <td className="dim">
-                                        Watermark text, max 40 characters
+                                        Required non-empty text, maximum 60 characters
                                     </td>
                                 </tr>
 
@@ -731,7 +718,21 @@ export default function EkmarkApiDocs() {
                                         <span className="req">required</span>
                                     </td>
                                     <td className="dim">
-                                        Must parse as a number, e.g. <code>"24"</code>
+                                        Number from 10 to 120, e.g. <code>"24"</code>. Scaled for image width and
+                                        reduced if needed so the watermark fits the image.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>position</code></td>
+                                    <td className="dim">string</td>
+                                    <td>
+                                        <span className="req">required</span>
+                                    </td>
+                                    <td className="dim">
+                                        One of <code>top-left</code>, <code>top-center</code>, <code>top-right</code>,
+                                        <code> left</code>, <code>center</code>, <code>right</code>,
+                                        <code> bottom-left</code>, <code>bottom-center</code>, or <code>bottom-right</code>
                                     </td>
                                 </tr>
                             </tbody>
@@ -743,7 +744,8 @@ export default function EkmarkApiDocs() {
   -F "images=@photo1.jpg" \\
   -F "images=@photo2.jpg" \\
   -F "text=© Ekmark 2026" \\
-  -F "fontSize=24"`}
+  -F "fontSize=24" \\
+  -F "position=bottom-right"`}
                         />
 
                         <CodeBlock
@@ -754,13 +756,15 @@ form.append("images", file1);
 form.append("images", file2);
 form.append("text", "© Ekmark 2026");
 form.append("fontSize", "24");
+form.append("position", "bottom-right");
 
 const res = await fetch("https://api.ekmark.ekolix.com.ng/api/watermark", {
   method: "POST",
   body: form,
 });
 
-const data = await res.json();`}
+const data = await res.json();
+if (!res.ok) throw new Error(data.message || "Watermark request failed");`}
                         />
                     </Section>
 
@@ -816,22 +820,23 @@ const data = await res.json();`}
                         </table>
 
                         <p>
-                            All output is converted to PNG regardless of input format. Watermark placement is
-                            fixed to the bottom-right (southeast) corner, sized relative to image width — not
-                            currently configurable per request.
+                            All output is converted to PNG regardless of input format. Placement follows the
+                            requested position. Font size scales with image width and is reduced as needed so
+                            the watermark fits within both image dimensions.
                         </p>
                     </Section>
 
                     <Section id="errors" title="Errors">
                         <p>
-                            Failures are passed to <code>next(err)</code>, so the actual status code and JSON
-                            shape depend on your global Express error handler. These are the conditions the
-                            route itself checks for:
+                            Errors use a JSON response with <code>success: false</code> and a <code>message</code>.
+                            Invalid request fields and upload problems return a client error; unexpected image
+                            processing failures return a generic server error while details are logged server-side.
                         </p>
 
                         <table>
                             <thead>
                                 <tr>
+                                    <th>Status</th>
                                     <th>Condition</th>
                                     <th>Message</th>
                                 </tr>
@@ -839,42 +844,47 @@ const data = await res.json();`}
 
                             <tbody>
                                 <tr>
+                                    <td><code>400</code></td>
                                     <td className="dim">
-                                        Missing <code>text</code> or no files
+                                        Blank or missing <code>text</code>
                                     </td>
-                                    <td>Text or Images not provided</td>
+                                    <td>Watermark text is required</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="dim">
-                                        <code>fontSize</code> not a number
-                                    </td>
-                                    <td>Font size must be a number</td>
+                                    <td><code>400</code></td>
+                                    <td className="dim">No images uploaded</td>
+                                    <td>At least one image is required</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="dim">
-                                        <code>text</code> over 40 characters
-                                    </td>
-                                    <td>Watermark text must be less than 40 characters</td>
+                                    <td><code>400</code></td>
+                                    <td className="dim"><code>fontSize</code> is invalid or out of range</td>
+                                    <td>Font size must be a number / between 10 and 120</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="dim">
-                                        Unreadable image / Sharp failure
-                                    </td>
-                                    <td>
-                                        Could not read width for &#123;filename&#125;
-                                    </td>
+                                    <td><code>400</code></td>
+                                    <td className="dim">Text exceeds 60 characters or position is unsupported</td>
+                                    <td>Validation message describing the invalid field</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="dim">
-                                        Any other processing error
-                                    </td>
-                                    <td>
-                                        An error occured while processing images. Error: &#123;message&#125;
-                                    </td>
+                                    <td><code>400</code></td>
+                                    <td className="dim">Unsupported MIME type or too many files</td>
+                                    <td>Only images are allowed / Too many files</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>413</code></td>
+                                    <td className="dim">An uploaded file exceeds 2 MiB</td>
+                                    <td>File too large</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>500</code></td>
+                                    <td className="dim">Unreadable image or other processing failure</td>
+                                    <td>An unexpected server error occurred</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -883,42 +893,47 @@ const data = await res.json();`}
                             lang="example error body"
                             code={`{
   "success": false,
-  "error": "Watermark text must be less than 40 characters"
+  "message": "Watermark text must be at most 60 characters"
 }`}
                         />
-
-                        <div className="callout">
-                            <AlertTriangle size={15} />
-
-                            <span>
-                                Confirm this error body shape against your actual error-handling middleware —
-                                it isn't defined in the route file itself.
-                            </span>
-                        </div>
                     </Section>
 
                     <Section id="limits" title="Limits & behavior notes">
                         <ul className="todo-list">
                             <li>
-                                Max 10 files per request (<code>upload.array('images', 10)</code>)
+                                Up to 10 images per request, with a maximum file size of 2 MiB per image
                             </li>
 
                             <li>
-                                Watermark text capped at 40 characters
+                                Watermark text is required and limited to 60 characters
                             </li>
 
                             <li>
-                                Output is always PNG, regardless of input format
+                                Font size must be between 10 and 120; it scales with image width and is reduced to fit both dimensions
                             </li>
 
                             <li>
-                                Watermark position is fixed to bottom-right — not configurable yet
+                                Positions: top-left, top-center, top-right, left, center, right, bottom-left, bottom-center, bottom-right
                             </li>
 
                             <li>
-                                Response returns base64 in the JSON body — large batches or high-res images mean large payloads
+                                Output is PNG as base64 data URLs; uploads and output are held in memory and not persisted
+                            </li>
+
+                            <li>
+                                Images in a batch are processed concurrently
                             </li>
                         </ul>
+
+                        <div className="callout">
+                            <AlertTriangle size={15} />
+
+                            <span>
+                                Current deployment settings: CORS allows any origin, and the API has no authentication
+                                or active rate limiting. Protect the service before relying on restricted access
+                                or high-volume public traffic.
+                            </span>
+                        </div>
                     </Section>
                 </main>
             </div>
